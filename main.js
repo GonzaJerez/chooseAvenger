@@ -45,6 +45,23 @@ imagen2.setAttribute('title', vengador[1][1])
 
 let contador = 2;
 let hacerClick= true;
+
+const cambiarImg = img=>{
+    return new Promise((resolve,reject)=>{
+        resolve(img.setAttribute('src', vengador[contador][0]))
+    })
+}
+const cambiarTitulo = img=>{
+    return new Promise((resolve,reject)=>{
+        resolve(img.setAttribute('title', vengador[contador][1]))
+    })
+}
+
+const mostrarImg = async(img)=>{
+    await cambiarImg(img);
+    await cambiarTitulo(img);
+    img.style.opacity= '1';
+}
     
 contenedor.addEventListener('click',(e)=>{
 
@@ -55,16 +72,10 @@ contenedor.addEventListener('click',(e)=>{
             if(e.target == imagen1){
                 imagen2.style.transition= 'all 800ms'
                 imagen2.style.opacity= '0'
-                new Promise((resolve)=>{
-                    setTimeout(()=>{
-                    imagen2.setAttribute('src', vengador[contador][0])
-                    imagen2.setAttribute('title', vengador[contador][1])
-                    console.log('cambio de imagen');
-                    resolve(imagen2)
+                setTimeout(()=>{
+                    mostrarImg(imagen2)
                     contador++
-                },1000)})
-                .then(data=>data.style.opacity= '1')
-                .then(data=>console.log('muestra de imagen'))
+                },1000)
             }else{
                 imagen1.style.transition= 'all 800ms'
                 imagen1.style.opacity= '0'
