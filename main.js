@@ -47,13 +47,13 @@ let contador = 2;
 let hacerClick= true;
     
 contenedor.addEventListener('click',(e)=>{
-    console.log(hacerClick);
+
     if(hacerClick){
 
         if (contador < vengador.length) {
             
             if(e.target == imagen1){
-                imagen2.style.transition= 'all 1000ms'
+                imagen2.style.transition= 'all 900ms'
                 imagen2.style.opacity= '0'
                 setTimeout(()=>{
                     imagen2.setAttribute('src', vengador[contador][0])
@@ -62,7 +62,7 @@ contenedor.addEventListener('click',(e)=>{
                     contador++
                 },1000)
             }else{
-                imagen1.style.transition= 'all 1000ms'
+                imagen1.style.transition= 'all 900ms'
                 imagen1.style.opacity= '0'
                 setTimeout(()=>{
                     imagen1.setAttribute('src', vengador[contador][0])
