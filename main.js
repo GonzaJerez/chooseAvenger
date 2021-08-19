@@ -60,11 +60,15 @@ const cambiarTitulo = img=>{
 const mostrarImg = async(img)=>{
     await cambiarImg(img);
     await cambiarTitulo(img);
-    img.style.opacity= '1';
+
+    setTimeout(()=>{
+        img.style.opacity= '1';
+
+    },1000)
 }
     
 contenedor.addEventListener('click',(e)=>{
-
+    // gh-pages
     if(hacerClick){
 
         if (contador < vengador.length) {
