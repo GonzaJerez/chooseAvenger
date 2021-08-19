@@ -45,6 +45,7 @@ imagen2.setAttribute('title', vengador[1][1])
 
 let contador = 2;
 let hacerClick= true;
+
 const cambiarImg = img=>{
     return new Promise((resolve,reject)=>{
         resolve(img.setAttribute('src', vengador[contador][0]))
@@ -59,11 +60,15 @@ const cambiarTitulo = img=>{
 const mostrarImg = async(img)=>{
     await cambiarImg(img);
     await cambiarTitulo(img);
-    img.style.opacity= '1';
+
+    setTimeout(()=>{
+        img.style.opacity= '1';
+        contador++
+    },1000)
 }
     
 contenedor.addEventListener('click',(e)=>{
-
+    // master
     if(hacerClick){
 
         if (contador < vengador.length) {
@@ -73,16 +78,12 @@ contenedor.addEventListener('click',(e)=>{
                 imagen2.style.opacity= '0'
                 setTimeout(()=>{
                     mostrarImg(imagen2)
-                    contador++
                 },1000)
             }else{
-                imagen1.style.transition= 'all 900ms'
+                imagen1.style.transition= 'all 800ms'
                 imagen1.style.opacity= '0'
                 setTimeout(()=>{
-                    imagen1.setAttribute('src', vengador[contador][0])
-                    imagen1.setAttribute('title', vengador[contador][1])
-                    imagen1.style.opacity= '1';
-                    contador++
+                    mostrarImg(imagen1)
                 },1000)
             }
         }
@@ -121,6 +122,6 @@ contenedor.addEventListener('click',(e)=>{
         hacerClick= false;
         setTimeout(()=>{
             hacerClick= true
-        },1500)
+        },2200)
     }
 })
