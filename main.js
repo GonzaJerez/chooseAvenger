@@ -51,16 +51,20 @@ contenedor.addEventListener('click',(e)=>{
     if(hacerClick){
 
         if (contador < vengador.length) {
-            
+            // master
             if(e.target == imagen1){
-                imagen2.style.transition= 'all 900ms'
+                imagen2.style.transition= 'all 800ms'
                 imagen2.style.opacity= '0'
-                setTimeout(()=>{
+                new Promise((resolve)=>{
+                    setTimeout(()=>{
                     imagen2.setAttribute('src', vengador[contador][0])
                     imagen2.setAttribute('title', vengador[contador][1])
-                    imagen2.style.opacity= '1';
+                    console.log('cambio de imagen');
+                    resolve(imagen2)
                     contador++
-                },1000)
+                },1000)})
+                .then(data=>data.style.opacity= '1')
+                .then(data=>console.log('muestra de imagen'))
             }else{
                 imagen1.style.transition= 'all 900ms'
                 imagen1.style.opacity= '0'
