@@ -63,7 +63,7 @@ const mostrarImg = async(img)=>{
 
     setTimeout(()=>{
         img.style.opacity= '1';
-
+        contador++
     },1000)
 }
     
@@ -78,7 +78,6 @@ contenedor.addEventListener('click',(e)=>{
                 imagen2.style.opacity= '0'
                 setTimeout(()=>{
                     mostrarImg(imagen2)
-                    contador++
                 },1000)
             }else{
                 imagen1.style.transition= 'all 800ms'
@@ -126,6 +125,6 @@ contenedor.addEventListener('click',(e)=>{
         hacerClick= false;
         setTimeout(()=>{
             hacerClick= true
-        },1500)
+        },2200)
     }
 })
