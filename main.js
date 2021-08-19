@@ -83,10 +83,7 @@ contenedor.addEventListener('click',(e)=>{
                 imagen1.style.transition= 'all 800ms'
                 imagen1.style.opacity= '0'
                 setTimeout(()=>{
-                    imagen1.setAttribute('src', vengador[contador][0])
-                    imagen1.setAttribute('title', vengador[contador][1])
-                    imagen1.style.opacity= '1';
-                    contador++
+                    mostrarImg(imagen1)
                 },1000)
             }
         }
